@@ -6,21 +6,24 @@ class Fenetre(QWidget):
         self.setWindowTitle("Avis DBD") #titre fenetre
 
         self.layout=QGridLayout() #ajouter sous forme de grille
+        self.setLayout(self.layout)
+
 
         self.label = QLabel("Laisser un commentaire")
-
         self.texte=QTextEdit("")
-
-        self.bouton1=QPushButton("Success")
-        self.bouton2=QPushButton("Cancel")
-
-
         self.layout.addWidget(self.label)
-        self.layout.addWidget(self.texte)
-        self.layout.addWidget(self.bouton1)
-        self.layout.addWidget(self.bouton2)
+        self.layout.addWidget(self.texte,1,0,2,2)
+
+        liste=['Success','Cancel']
+        compteur=0
+        for a in liste:
+            self.bouton=QPushButton(a)
+            self.layout.addWidget(self.bouton,3,compteur)
+            compteur+=1
+
 
         self.setLayout(self.layout)
+
 
 if __name__ == "__main__":
    app = QApplication([])
